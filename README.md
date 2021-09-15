@@ -41,12 +41,16 @@ chain(5).then(n => n * 3);
 // The then in this example could be named anything
 ```
 
-
-
-
-
-
-## 🏀 Promises 
+### 🏀 Promises 
 
 - Promises don't involve assignments like value = ..., so we need to get rid of those. The first step toward that is to introduce a chain function that wraps the value in an object. (The extra whitespace in this example will be filled in with code as we go.)
 
+- Promises use `then` which can see the previous value. 
+
+```js
+Promose.resolve(5).then(n => n + 1) // 6
+```
+
+- Promises' `then` callbacks are the same. Callbacks attached with `then` don't run immediately; they're only scheduled to run later.
+
+- Using promises feels very different from using `setTimeout`. But in terms of their underlying execution and scheduling, they're quite similar.
