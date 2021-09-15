@@ -54,3 +54,5 @@ Promose.resolve(5).then(n => n + 1) // 6
 - Promises' `then` callbacks are the same. Callbacks attached with `then` don't run immediately; they're only scheduled to run later.
 
 - Using promises feels very different from using `setTimeout`. But in terms of their underlying execution and scheduling, they're quite similar.
+
+- `Promises` are called `promises` because when we create one, we're promising to provide a value at some point in the future.
