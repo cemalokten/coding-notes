@@ -56,3 +56,5 @@ Promose.resolve(5).then(n => n + 1) // 6
 - Using promises feels very different from using `setTimeout`. But in terms of their underlying execution and scheduling, they're quite similar.
 
 - `Promises` are called `promises` because when we create one, we're promising to provide a value at some point in the future.
+
+- `Promises` without an arguement `Promise.resolve()` return `{fulfilled: undefined}` the same as a function without an explicit return statement
