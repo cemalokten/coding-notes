@@ -11,6 +11,13 @@
 - [🔗 Week Ten](#-week-teb)
 - [🧫 Week Eleven](#-week-eleven) -->
 
+### 🧱 Objects 
+
+```js
+// Object.assign will combine two objects
+Object.assign({name: 'Betty'}, {city: 'Nassau'});
+```
+
 ### 👀 Functions
 
 Arrow functions can be defined and then called immediately.
