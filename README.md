@@ -15,6 +15,7 @@
 
 ```js
 // Object.assign will combine two objects
+
 Object.assign({name: 'Betty'}, {city: 'Nassau'});
 ```
 
