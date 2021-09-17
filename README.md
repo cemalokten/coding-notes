@@ -66,3 +66,34 @@ Promose.resolve(5).then(n => n + 1) // 6
 - `Promises` are called `promises` because when we create one, we're promising to provide a value at some point in the future.
 
 - `Promises` without an arguement `Promise.resolve()` return `{fulfilled: undefined}` the same as a function without an explicit return statement
+
+### REGEX
+
+LITERALS
+
+Regular expressions (regexes) are patterns that describe strings. We might write a regex for filenames ending in ".jpg". Or we might write one that recognizes phone numbers.
+
+- `/a/.test('cat')` returns `true`
+
+- `/b/.test('cat')` returns `false`
+
+- `spaces` are characters
+
+WILDCARD
+
+Regexes like `/a/` are literal: they specify exact characters to match. The real power in regexes is in the various operators. The most basic is `.`, the wildcard operator. It matches any character. But the character must be present; `.` won't match the empty string.
+
+- `.` does not match new lines `/n`
+
+- Putting `.` next to another character means that they occur consecutively. For example, `/a./` matches an `"a"` followed by any character. And `/.a/` matches any character followed by an `"a"`.
+
+```
+/x..z/.test('xaaz') //true
+/x.z/.test('xyz) //true
+/x.z/.test('xyyz') //false
+```
+
+BOUNDARIES
+
+Often, we want to match text at the beginning and end of strings. We'll use boundaries for that. The first is `^`, which means beginning of string.
+
