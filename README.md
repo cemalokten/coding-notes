@@ -67,6 +67,14 @@ Promose.resolve(5).then(n => n + 1) // 6
 
 - `Promises` without an arguement `Promise.resolve()` return `{fulfilled: undefined}` the same as a function without an explicit return statement
 
+#### REJECTING PROMISES
+
+- To create a rejected promise, we can call `Promise.reject(someReason)`. The "reason" argument tells us why the promise was rejected. Most reasons are `Error` objects, but other JavaScript values are allowed as well.
+
+- We turn the error into a string because JavaScript has no way to represent literal error objects, just as it has no way to represent literal promises. Fortunately, this is more straightforward with errors: the string `Error: oh no` is what we get by calling `.toString()` on the error.
+
+- If we `throw` an exception inside a `then` callback, the exception is automatically converted into a promise rejection. The thrown error becomes the rejection reason.
+
 ### REGEX
 
 LITERALS
