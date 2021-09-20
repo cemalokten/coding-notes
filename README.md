@@ -95,5 +95,16 @@ Regexes like `/a/` are literal: they specify exact characters to match. The real
 
 BOUNDARIES
 
-Often, we want to match text at the beginning and end of strings. We'll use boundaries for that. The first is `^`, which means beginning of string.
+Often, we want to match text at the beginning and end of strings. We'll use boundaries for that. 
 
+- The first is `^`, which means beginning of string.
+
+- The second boundary is `$`, which means end of string.
+
+- Usually, we want to match an entire string. Most regexes should include these boundaries, `^` and `$`.
+
+- To match only the empty string, we can smash the `^` and `$` together
+
+- If we use the wrong boundaries, there's no error. The regex always returns false.
+
+- 
