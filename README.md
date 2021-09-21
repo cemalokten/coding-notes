@@ -21,7 +21,7 @@ Object.assign({name: 'Betty'}, {city: 'Nassau'});
 
 ### 👀 Functions
 
-Arrow functions can be defined and then called immediately.
+- Arrow functions can be defined and then called immediately.
 
 `arrowFn = (n => n + 1)(5) //returns 6`
 
