@@ -75,6 +75,31 @@ Promose.resolve(5).then(n => n + 1) // 6
 
 - If we `throw` an exception inside a `then` callback, the exception is automatically converted into a promise rejection. The thrown error becomes the rejection reason.
 
+#### PROMISE CONSTRUCTOR
+
+So far, we've only seen how to create promises with `Promise.resolve` and `Promise.reject`. Those methods are simple and work in many simple situations, so it's a good idea to use them.
+
+However, those methods can't solve all of our problems. For example, how can we delay Promise fulfillment while waiting for a network, a disk, or a timer? Using what we've seen so far, we might try to call `Promise.resolve` inside of a setTimeout.
+
+Thankfully, the new Promise constructor provides a better solution to this problem. We'll start with a simple code example, which is easier than explaining new Promise in words.
+
+```js
+> 
+
+new Promise(resolve => resolve(5));
+
+//`resolve` is a function which gets passed as an arguement
+// we can call `resolve()` straight away
+
+Async Result:
+
+{fulfilled: 5}
+```
+
+We pass a callback function to the `new Promise` constructor. Our callback gets a `resolve` function as an argument. When we call `resolve`, the promise fulfills.
+
+We can call `resolve()` immediately, as in the example above. However, the real power is in calling it later.
+
 ### REGEX
 
 LITERALS
