@@ -100,6 +100,37 @@ We pass a callback function to the `new Promise` constructor. Our callback gets 
 
 We can call `resolve()` immediately, as in the example above. However, the real power is in calling it later.
 
+We can also use the `new Promise` constructor to create a `rejected` promise. To do that, we accept a second argument in our callback, `reject`.
+
+```js
+> 
+
+new Promise((resolve, reject) => reject(new Error('it failed')));
+
+Async Result:
+
+{rejected: 'Error: it failed'}
+```
+
+This allows us to accept or reject a promise depending on what happens at runtime.
+
+```js
+const users = [
+  {id: 1, name: 'Amir'},
+  {id: 2, name: 'Betty'},
+];
+
+function getUser(id) {
+  return new Promise((resolve, reject) => {
+    const user = users.find(user => user.id === id);
+    if (user) {
+      resolve(user);
+    } else {
+      reject(new Error('no such user'));
+    }
+  });
+}
+```
 ### REGEX
 
 LITERALS
