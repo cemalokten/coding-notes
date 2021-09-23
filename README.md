@@ -131,6 +131,62 @@ function getUser(id) {
   });
 }
 ```
+
+One important thing to keep in mind: the `resolve` function that we get from the constructor is separate from the `Promise.resolve` method. And the `reject` function here is separate from the `Promise.reject` method.
+
+You can think of `Promise.resolve` and `Promise.reject` as the simple versions: when we call `Promise.resolve(5)`, we're creating a new promise that's fulfilled with the value 5. No callback functions are involved, so there's no way for us to delay resolution with `Promise.resolve`.
+
+#### CATCHING EXCEPTIONS
+
+In regular JavaScript, we recover from exceptions with `catch`.
+
+```js
+function tryAndCatch() {
+  try {
+    throw new Error();
+  } catch (e) {
+    return 'we caught it';
+  }
+}
+tryAndCatch();
+
+// Result:
+
+'we caught it'
+```
+
+We can catch promise rejection as well, but not with the usual `try { ... } catch { ... }` syntax. Instead, promises have a `catch` method. When a promise rejects, its `catch` callback (if any) is called.
+
+In some ways, `catch` behaves like `then`. Both take callback functions, and both return promises containing the callback's return value. The main difference is that `then` is called under normal conditions, but `catch` is called only when a promise rejects. With `catch`, we can recover from a rejection, returning a fulfilled rather than rejected promise.
+
+```js
+Promise.resolve()
+  .then(() => {
+    throw new Error('this will reject!');
+  })
+  .catch(() => 'we caught it');
+
+Async Result:
+
+{fulfilled: 'we caught it'}
+```
+
+The `catch` method is the most common error-handling mechanism in promises. But there's another, less common method as well.
+
+So far, our `then` callbacks have always looked like `.then (someValue => ...)`. But `then` actually takes two callback functions as arguments: `.then(onFulfilled, onRejected)`. The `onRejected` callback is called when the parent promise rejects.
+
+```js
+Promise.reject(new Error('user does not exist'))
+  .then(
+    value => 'it fulfilled',
+    reason => 'it rejected'
+  );
+
+Async Result:
+
+{fulfilled: 'it rejected'}
+```
+
 ### REGEX
 
 LITERALS
