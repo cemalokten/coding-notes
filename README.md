@@ -187,6 +187,8 @@ Async Result:
 {fulfilled: 'it rejected'}
 ```
 
+A promise can fulfill or reject, but it can't do both. Only one of the two then callbacks is called: either `onFulfilled` or `onRejected`.
+
 ### REGEX
 
 LITERALS
